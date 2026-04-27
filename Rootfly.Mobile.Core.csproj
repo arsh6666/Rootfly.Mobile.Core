@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework />
+    <TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <PackageId>Rootfly.Mobile.Core</PackageId>
+    <Description>Meta-package — installs all Rootfly Mobile Core packages with one NuGet reference</Description>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Rootfly.Mobile.Core.Common/Rootfly.Mobile.Core.Common.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.WhiteLabel/Rootfly.Mobile.Core.WhiteLabel.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.Security/Rootfly.Mobile.Core.Security.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.Networking/Rootfly.Mobile.Core.Networking.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.Storage/Rootfly.Mobile.Core.Storage.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.Diagnostics/Rootfly.Mobile.Core.Diagnostics.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.Media/Rootfly.Mobile.Core.Media.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.Upload/Rootfly.Mobile.Core.Upload.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.Offline/Rootfly.Mobile.Core.Offline.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.Notifications/Rootfly.Mobile.Core.Notifications.csproj" />
+    <ProjectReference Include="../Rootfly.Mobile.Core.UI/Rootfly.Mobile.Core.UI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Autofac" Version="10.3.0" />
+    <PackageReference Include="CommunityToolkit.Maui" Version="13.0.0" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.20" />
+  </ItemGroup>
+
+</Project>
